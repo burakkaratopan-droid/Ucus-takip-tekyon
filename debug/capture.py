@@ -1,38 +1,36 @@
-"""Geçici: tarayıcının sonradan gönderdiği istekleri yakala (26 Şub IST→NRT tek yön)."""
-import json, re
+"""Geçici 2: GetShoppingResults isteğini tarayıcısız gönder; Sichuan geliyor mu?"""
+import json, urllib.parse, urllib.request
 from pathlib import Path
-from fast_flights import FlightQuery, Passengers, create_query
-from playwright.sync_api import sync_playwright
+from primp import Client
 
-q = create_query(flights=[FlightQuery(date="2027-02-26", from_airport="IST", to_airport="NRT")],
-                 trip="one-way", seat="economy", passengers=Passengers(adults=1),
-                 language="tr", currency="TRY", max_stops=1)
-reqs = []
-with sync_playwright() as pw:
-    b = pw.chromium.launch()
-    page = b.new_page(locale="tr-TR", viewport={"width": 1280, "height": 2000})
-
-    def on_resp(r):
-        u = r.url
-        if "google.com" in u and ("/_/" in u or "batchexecute" in u or "data/" in u):
-            try:
-                body = r.text()
-            except Exception:
-                body = ""
-            reqs.append({"url": u, "method": r.request.method,
-                         "post": (r.request.post_data or "")[:6000],
-                         "headers": {k: v for k, v in r.request.headers.items()
-                                     if k.lower().startswith("x-") or k.lower() in ("content-type",)},
-                         "status": r.status, "len": len(body),
-                         "has_thai": "THAI" in body, "has_sichuan": "Sichuan" in body,
-                         "body_head": body[:1500]})
-    page.on("response", on_resp)
-    page.goto(q.url(), wait_until="domcontentloaded", timeout=45000)
-    page.wait_for_timeout(12000)
-    more = page.get_by_role("button", name=re.compile("Daha fazla uçuş"))
-    if more.count():
-        more.first.click(); page.wait_for_timeout(5000)
-    b.close()
-Path(__file__).with_name("capture.json").write_text(json.dumps(reqs, ensure_ascii=False, indent=1), encoding="utf-8")
-for r in reqs:
-    print(r["method"], r["status"], r["len"], r["has_thai"], r["has_sichuan"], r["url"][:160])
+EP = ("https://www.google.com/_/FlightsFrontendUi/data/travel.frontend.flights."
+      "FlightsFrontendService/GetShoppingResults?hl=tr&soc-app=162&soc-platform=1&soc-device=1&rt=c")
+inner = json.dumps([[], [None, None, 2, None, [], 1, [1, 0, 0, 0], None, None, None, None, None, None,
+                         [[[[["IST", 0]]], [[["NRT", 0]]], None, 2, None, None, "2027-02-26",
+                           None, None, None, None, None, None, None, 3]],
+                         None, None, None, 1], 0, 1, 0, 1], separators=(",", ":"))
+body = "f.req=" + urllib.parse.quote(json.dumps([None, inner], separators=(",", ":"))) + "&"
+hdr = {"content-type": "application/x-www-form-urlencoded;charset=utf-8", "x-same-domain": "1",
+       "x-goog-ext-259736195-jspb": '["tr","TR","TRY",2,null,[0],null,null,7,[]]'}
+out = {}
+# 1) primp (Chrome taklidi)
+try:
+    c = Client(impersonate="chrome_145", impersonate_os="macos", referer=True, cookie_store=True)
+    r = c.post(EP, content=body.encode(), headers=hdr)
+    t = r.text
+    out["primp"] = {"status": r.status_code, "len": len(t), "sichuan": "Sichuan" in t, "thai": "THAI" in t}
+    Path(__file__).with_name("primp_body.txt").write_text(t, encoding="utf-8")
+except Exception as e:
+    out["primp"] = {"error": str(e)}
+# 2) düz urllib (telefondaki gibi)
+try:
+    req = urllib.request.Request(EP, data=body.encode(), headers={**hdr, "User-Agent":
+          "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36"})
+    with urllib.request.urlopen(req, timeout=40) as r:
+        t = r.read().decode("utf-8", "replace")
+    out["urllib"] = {"status": 200, "len": len(t), "sichuan": "Sichuan" in t, "thai": "THAI" in t}
+    Path(__file__).with_name("urllib_body.txt").write_text(t, encoding="utf-8")
+except Exception as e:
+    out["urllib"] = {"error": str(e)}
+Path(__file__).with_name("capture.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+print(out)
