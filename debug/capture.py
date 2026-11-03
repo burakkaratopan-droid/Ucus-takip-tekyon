@@ -36,26 +36,29 @@ with sync_playwright() as pw:
         page.get_by_role("button", name=re.compile(r"^\w{3} \d{2} \w{3} \d{4}")).first.click(); page.wait_for_timeout(1500)
         out["cal_html"] = page.locator("[role=dialog], [data-reka-popper-content-wrapper]").first.inner_html()[:6000] if page.locator("[role=dialog], [data-reka-popper-content-wrapper]").count() else page.content()[-6000:]
         page.screenshot(path=str(D / "s3.png"))
+        dlg = page.locator("[data-slot=popover-content][data-state=open]").first
         for _ in range(8):
-            if page.get_by_text(re.compile("February 2027|Feb 2027", re.I)).count():
+            head = dlg.locator("div.grid").first.inner_text()
+            if "Feb" in head and "2027" in head:
                 break
-            page.get_by_role("button", name=re.compile("next", re.I)).last.click(); page.wait_for_timeout(400)
-        step("month ok")
-        cells = page.locator("[data-value='2027-02-26'], [aria-label*='February 26, 2027'], [aria-label*='26 February 2027']")
-        if cells.count():
-            cells.first.click()
-        else:
-            grid = page.get_by_role("grid").filter(has_text=re.compile("February", re.I)).first
-            grid.get_by_text("26", exact=True).first.click()
+            dlg.locator("div.grid").first.locator("button").nth(4).click(); page.wait_for_timeout(400)
+        step("month ok: " + dlg.locator("div.grid").first.inner_text().replace("\n", " "))
+        dlg.get_by_role("button", name="26", exact=True).first.click()
         step("date ok"); page.wait_for_timeout(800)
         page.screenshot(path=str(D / "s4.png"))
         for t in ("Confirm", "Done", "OK", "Apply"):
             btn = page.get_by_role("button", name=t)
             if btn.count() and btn.first.is_visible(): btn.first.click(); break
-        with ctx.expect_page(timeout=20000) as newp:
-            page.get_by_role("button", name="Search").first.click()
-        res = newp.value
-        step("search clicked, new tab")
+        step("depart: " + page.get_by_role("button", name=re.compile(r"^\w{3} \d{2} \w{3} \d{4}")).first.inner_text())
+        page.get_by_role("button", name="Search").first.click(); page.wait_for_timeout(2000)
+        conf = page.get_by_role("button", name="Confirm")
+        try:
+            with ctx.expect_page(timeout=20000) as newp:
+                if conf.count() and conf.first.is_visible():
+                    conf.first.click()
+            res = newp.value; step("new tab")
+        except Exception:
+            res = page; step("same tab")
     except Exception as e:
         out["error"] = traceback.format_exc()[-1500:]
         res = page
