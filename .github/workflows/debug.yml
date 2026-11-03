@@ -1,0 +1,28 @@
+name: Geçici teşhis (Sichuan)
+
+on:
+  push:
+    paths: ["debug/sichuan_check.py"]
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python debug/sichuan_check.py
+      - name: Sonucu kaydet
+        run: |
+          git config user.name "fiyat-botu"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add debug/sonuc.json
+          git commit -m "Teşhis sonucu" || exit 0
+          git pull --rebase
+          git push
