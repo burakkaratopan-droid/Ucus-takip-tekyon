@@ -91,11 +91,13 @@ def parse(html):
     return options
 
 
-def make_query(frm, to, d):
-    # Süre sınırı da sorguya gömülür; böylece paneldeki linkler Google'da filtreler uygulanmış açılır.
+def make_query(frm, to, d, for_link=False):
+    # Süre sınırı sadece panel linklerine gömülür (Google'da filtreli açılsınlar diye). Taramada
+    # gömülmez: o zaman uygun uçuşu olmayan rotalarda Google boş döner, kod boş sonucu hata sanıp
+    # tekrar dener ve tarama ~2 kat uzar. Tarama süreyi kendisi filtreliyor (fits).
     return create_query(
         flights=[FlightQuery(date=d.isoformat(), from_airport=frm, to_airport=to,
-                             max_duration_minutes=MAX_MINUTES)],
+                             max_duration_minutes=MAX_MINUTES if for_link else None)],
         trip="one-way",
         seat="economy",
         passengers=Passengers(adults=CONFIG["adults"]),
@@ -113,7 +115,7 @@ def quick_links():
     for direction, span, pairs in (("out", CONFIG["outbound"], [(o, t) for o in tr for t in jp]),
                                    ("ret", CONFIG["return"], [(o, t) for o in jp for t in tr])):
         d = max(date.fromisoformat(span["from"]), date.today() + timedelta(days=1))
-        links[direction] = [{"from": o, "to": t, "date": d.isoformat(), "url": make_query(o, t, d).url()}
+        links[direction] = [{"from": o, "to": t, "date": d.isoformat(), "url": make_query(o, t, d, for_link=True).url()}
                             for o, t in pairs]
     return links
 
@@ -126,7 +128,7 @@ def fetch(frm, to, d, attempts=3):
             options = parse(fetch_flights_html(q))
             # Google ara sıra boş sonuç döndürüyor; birkaç kez daha dene.
             if options or i == attempts - 1:
-                return options, q.url()
+                return options, make_query(frm, to, d, for_link=True).url()
         except Exception as e:  # ağ hatası, engelleme, değişen sayfa yapısı
             err = e
         time.sleep(5 * (i + 1) + random.random() * 3)
