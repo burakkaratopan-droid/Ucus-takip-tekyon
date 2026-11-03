@@ -29,11 +29,12 @@ with sync_playwright() as pw:
         page.get_by_role("button", name="One Way").first.click(); step("one way")
         dep = page.get_by_placeholder("Departure city"); dep.click(); dep.fill("Istanbul"); page.wait_for_timeout(2500)
         page.screenshot(path=str(D / "s1.png"))
-        page.get_by_text(re.compile("IST", re.I)).filter(has_text=re.compile("Istanbul", re.I)).first.click(); step("from ok")
+        page.get_by_text("IstanbulAirport").first.click(); page.wait_for_timeout(800); step("from ok: " + dep.input_value())
         arr = page.get_by_placeholder("Arrival city"); arr.click(); arr.fill("Tokyo"); page.wait_for_timeout(2500)
         page.screenshot(path=str(D / "s2.png"))
-        page.get_by_text(re.compile("NRT|Narita", re.I)).first.click(); step("to ok")
-        page.locator("#v-13").click(); page.wait_for_timeout(1500)
+        page.get_by_text("Tokyo Narita International Airport").first.click(); page.wait_for_timeout(800); step("to ok: " + arr.input_value())
+        page.get_by_role("button", name=re.compile(r"^\w{3} \d{2} \w{3} \d{4}")).first.click(); page.wait_for_timeout(1500)
+        out["cal_html"] = page.locator("[role=dialog], [data-reka-popper-content-wrapper]").first.inner_html()[:6000] if page.locator("[role=dialog], [data-reka-popper-content-wrapper]").count() else page.content()[-6000:]
         page.screenshot(path=str(D / "s3.png"))
         for _ in range(8):
             if page.get_by_text(re.compile("February 2027|Feb 2027", re.I)).count():
