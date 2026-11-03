@@ -91,9 +91,11 @@ def parse(html):
     return options
 
 
-def fetch(frm, to, d, attempts=3):
-    q = create_query(
-        flights=[FlightQuery(date=d.isoformat(), from_airport=frm, to_airport=to)],
+def make_query(frm, to, d):
+    # Süre sınırı da sorguya gömülür; böylece paneldeki linkler Google'da filtreler uygulanmış açılır.
+    return create_query(
+        flights=[FlightQuery(date=d.isoformat(), from_airport=frm, to_airport=to,
+                             max_duration_minutes=MAX_MINUTES)],
         trip="one-way",
         seat="economy",
         passengers=Passengers(adults=CONFIG["adults"]),
@@ -101,6 +103,23 @@ def fetch(frm, to, d, attempts=3):
         currency=CONFIG["currency"],
         max_stops=CONFIG["max_stops"],
     )
+
+
+def quick_links():
+    """Her havalimanı çifti için pencerenin ilk gününe filtreli Google Flights linki (takvimden diğer günlere bakılır)."""
+    tr = [a["code"] for a in CONFIG["turkey"]]
+    jp = [a["code"] for a in CONFIG["japan"]]
+    links = {}
+    for direction, span, pairs in (("out", CONFIG["outbound"], [(o, t) for o in tr for t in jp]),
+                                   ("ret", CONFIG["return"], [(o, t) for o in jp for t in tr])):
+        d = max(date.fromisoformat(span["from"]), date.today() + timedelta(days=1))
+        links[direction] = [{"from": o, "to": t, "date": d.isoformat(), "url": make_query(o, t, d).url()}
+                            for o, t in pairs]
+    return links
+
+
+def fetch(frm, to, d, attempts=3):
+    q = make_query(frm, to, d)
     err = None
     for i in range(attempts):
         try:
@@ -193,6 +212,7 @@ def main():
         top[direction] = pool[:CONFIG["top_n"]]
 
     data["top"] = top
+    data["quick"] = quick_links()
     data["updated"] = now
     data["config"] = CONFIG
     data["last_run"] = {"at": now, "ok": ok, "failed": failed, "total": len(todo)}
