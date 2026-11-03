@@ -17,7 +17,7 @@ from concurrent.futures import ThreadPoolExecutor
 DATA_URL = "https://raw.githubusercontent.com/burakkaratopan-droid/Ucus-takip-tekyon/main/docs/data.json"
 UA = ("Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) "
       "Chrome/130.0.0.0 Mobile Safari/537.36")
-WORKERS = 3
+WORKERS = 2
 DS1 = re.compile(r'<script[^>]*class="ds:1"[^>]*>(.*?)</script>', re.S)
 
 
@@ -64,16 +64,16 @@ def search_url(url):
 
 
 def scan(route, max_stops, max_minutes):
-    for i in range(3):
+    for i in range(4):
         try:
             opts = parse(get(search_url(route["url"])))
-            if opts or i == 2:
+            if opts or i == 3:
                 return route, [o for o in opts
                                if len(o["via"]) <= max_stops and o["minutes"] and o["minutes"] <= max_minutes]
         except Exception as e:
-            if i == 2:
+            if i == 3:
                 return route, e
-        time.sleep(2 * (i + 1))
+        time.sleep(4 * (i + 1))
 
 
 def tl(n):
