@@ -30,12 +30,12 @@ for ln in t.split("\n"):
                     price = r[1][0][1]
                 except (IndexError, TypeError):
                     price = None
-                key = (tuple(f[1]), f[2][0][8] and tuple(f[2][0][8]), f[9])
+                key = (tuple(f[1]), tuple(((f[2][0][8] or []) + [0, 0])[:2]), f[9] or 0)
                 if price or key not in found:
                     found[key] = price
 rows = sorted(found.items(), key=lambda kv: (kv[1] is None, kv[1] or 0))
 print(f"{len(rows)} uçuş bulundu\n")
 for (air, dep, mins), price in rows[:8]:
-    print(f"{price if price else 'fiyat yok':>8}  {', '.join(air)}  {dep[0]:02d}:{dep[1]:02d}  {mins // 60} sa {mins % 60:02d} dk")
+    print(f"{price if price else 'fiyat yok':>8}  {', '.join(air)}  {dep[0] or 0:02d}:{dep[1] or 0:02d}  {mins // 60} sa {mins % 60:02d} dk")
 s = [(k, v) for k, v in found.items() if any("Sichuan" in a for a in k[0])]
 print("\nSICHUAN:", s[0][1] if s and s[0][1] else ("listede var ama fiyat yok" if s else "listede yok"))
