@@ -1,0 +1,352 @@
+{
+ "requests": [
+  {
+   "url": "https://global.sichuanair.com/",
+   "method": "GET",
+   "status": 200,
+   "post": "",
+   "body": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta name=\"description\" content=\"Sichuan Airlines Vue starter built with Tailwind CSS and shadcn-vue.\" />\n    <meta name=\"referrer\" content=\"no-referrer\" />\n    <title>Sichuan Airlines</title>\n    <script>\n      (function () {\n        if (location.pathname === '/m' || location.pathname.startsWith('/m/')) {\n          sessionStorage.removeItem('mobile-redirecting');\n          return;\n        }\n        if (sessionStorage.getItem('prefer-desktop')) return;\n\n        var ua = navigator.userAgent;\n        var isMobile = /Android|iPhone|iPod|Windows Phone|HarmonyOS|Mobile/i.test(ua);\n\n        if (isMobile) {\n          sessionStorage.setItem('mobil"
+  },
+  {
+   "url": "https://global.sichuanair.com/api/portal/bootstrap",
+   "method": "GET",
+   "status": 200,
+   "post": "",
+   "body": "{\"success\":true,\"error\":null,\"code\":\"OK\",\"data\":{\"site\":{\"siteId\":18,\"siteCode\":\"LAX3U12TK\",\"siteName\":\"the United States\",\"language\":\"en-US\",\"countryCode\":\"US\",\"currency\":\"USD,2\",\"fallbackCurrency\":null},\"releases\":[{\"moduleCode\":\"announcement\",\"currentVersionNo\":41,\"resolved\":{\"siteId\":18,\"mainJsPath\":\"/release/announcement/41/data/18/main.js\",\"menusJsPath\":null}},{\"moduleCode\":\"home_banner\",\"currentVersionNo\":93,\"resolved\":{\"siteId\":18,\"mainJsPath\":\"/release/home_banner/93/data/18/main.js\",\"menusJsPath\":null}},{\"moduleCode\":\"home_services\",\"currentVersionNo\":37,\"resolved\":{\"siteId\":18,\"mainJsPath\":\"/release/home_services/37/data/18/main.js\",\"menusJsPath\":null}},{\"moduleCode\":\"special_offers\",\"currentVersionNo\":64,\"resolved\":{\"siteId\":18,\"mainJsPath\":\"/release/special_offers/64/data/18/m"
+  },
+  {
+   "url": "https://global.sichuanair.com/api/portal/site/list",
+   "method": "GET",
+   "status": 200,
+   "post": "",
+   "body": "{\"success\":true,\"error\":null,\"code\":\"OK\",\"data\":[{\"id\":1,\"siteName\":\"Global\",\"countryCode\":\"GLOBE\",\"languages\":[\"en-US\"]},{\"id\":2,\"siteName\":\"Europe\",\"countryCode\":\"EUR\",\"languages\":[\"en-US\"]},{\"id\":6,\"siteName\":\"Australia\",\"countryCode\":\"AU\",\"languages\":[\"en-US\"]},{\"id\":7,\"siteName\":\"Canada\",\"countryCode\":\"CA\",\"languages\":[\"en-US\"]},{\"id\":3,\"siteName\":\"China\",\"countryCode\":\"CN\",\"languages\":[\"zh-CN\"]},{\"id\":9,\"siteName\":\"Hong Kong, China\",\"countryCode\":\"HK\",\"languages\":[\"en-US\"]},{\"id\":4,\"siteName\":\"Japan\",\"countryCode\":\"JP\",\"languages\":[\"en-US\"]},{\"id\":5,\"siteName\":\"Republic of Korea\",\"countryCode\":\"KR\",\"languages\":[\"en-US\"]},{\"id\":17,\"siteName\":\"Russia\",\"countryCode\":\"RU\",\"languages\":[\"en-US\"]},{\"id\":10,\"siteName\":\"Singapore\",\"countryCode\":\"SG\",\"languages\":[\"en-US\"]},{\"id\":11,\"siteName\":"
+  }
+ ],
+ "links": [
+  "https://global.sichuanair.com/app/online-services/special-meals",
+  "http://beian.miit.gov.cn/",
+  "https://global.sichuanair.com/app/announcements/kyg7yX",
+  "https://global.sichuanair.com/app/announcements/KenGZ5",
+  "https://global.sichuanair.com/app/announcements/4elvyq",
+  "https://global.sichuanair.com/app/announcements",
+  "https://global.sichuanair.com/app/",
+  "https://global.sichuanair.com/app/home/cookie-list",
+  "https://global.sichuanair.com/app/manage-booking",
+  "https://global.sichuanair.com/app/announcements/mZjL29",
+  "https://global.sichuanair.com/app/footer/OyxzeP",
+  "https://global.sichuanair.com/app/auth/sign-up",
+  "https://global.sichuanair.com/app/announcements/be6ren",
+  "https://www.tiktok.com/@sichuan.airlines",
+  "https://global.sichuanair.com/app/announcements/7yA4Zk",
+  "https://global.sichuanair.com/app/announcements/Je1d2b",
+  "https://x.com/Sichuan_Airline",
+  "https://global.sichuanair.com/app/online-services/prepaid-baggage",
+  "https://global.sichuanair.com/app/footer/7yA4Zk",
+  "https://global.sichuanair.com/app/footer/4elvyq",
+  "https://global.sichuanair.com/app/home",
+  "https://global.sichuanair.com/app/announcements/OyxzeP",
+  "https://global.sichuanair.com/app/announcements/MyYb2X",
+  "https://global.sichuanair.com/app/announcements/j2Og2J",
+  "https://global.sichuanair.com/app/online-services/flight-status",
+  "https://global.sichuanair.com/app/announcements/wy5j2n",
+  "https://global.sichuanair.com/app/announcements/6Zka20",
+  "https://global.sichuanair.com/app/footer/N2LEe1",
+  "https://global.sichuanair.com/app/footer/KenGZ5",
+  "https://chatuser.sichuanair.com/?num=zu03fAXoqe6a36WaMCZD6w",
+  "https://www.sichuanair.com/3utcms/webfile/pdf/Membership_Manual.pdf",
+  "https://global.sichuanair.com/app/announcements/N2LEe1",
+  "https://facebook.com/SichuanAirlines",
+  "https://global.sichuanair.com/app/announcements/3ewmyW",
+  "https://global.sichuanair.com/app/flying-with-us/wy5j2n",
+  "https://global.sichuanair.com/app/auth/sign-in",
+  "https://global.sichuanair.com/app/flying-with-us/4elvyq",
+  "https://global.sichuanair.com/app/flying-with-us/OyxzeP",
+  "https://global.sichuanair.com/app/footer/wy5j2n",
+  "https://global.sichuanair.com/app/home-services/N2LEe1"
+ ],
+ "title": "Sichuan Airlines",
+ "final_url": "https://global.sichuanair.com/app/home",
+ "text": "sichuan airlines homepage\n\nCSC Sales and Service Hotline\n\n+86 28 8888 8888(7x24h)\n\nOnline Customer Service\nthe United States\nLogin\nSign up\nHome\nManage Booking\nOnline Services\nInformation\nMembership Club\nNotice\nNotice\nRequirement for Attestation by All Persons Traveling by Air to the United States\nNotice on Scheduled Maintenance of Sichuan Airlines Online Customer Service System\nNotice for Passengers Traveling on Sichuan Airlines Flights to the United States\nImportant notice for inbound international flights of Sichuan Airlines\nNotice on Adjustment of Cutoff Time for Departing Flights from Vancouver\nTips on Transferring Regional Routes to Terminal 1 at Chengdu Shuangliu International Airport\n川航关于近期迪拜航线暂停执行的公告\nThe Suspension of Pet Transportation Services on Tianfu-Los Angeles Flights\nTraveling with an Infant\nNotice on remind of passengers taking flights to China to pay attention to the requirements\nKind Reminder\nNotice Regarding the Use of Yahoo Email for Travel Bookings\nMore\nNext slide\nNext slide\nNext slide\nNext slide\nNext slide\nFly with Sichuan Airlines – The Special Discount for Australia to China\nBook tickets for 2 or more people traveling from Melbourne or Sydney to China and enjoy a 15% discount!\nBook a Flight\nFlight Status\nPrepaid Baggage\nRound Trip\nOne Way\nMulti-City\nFrom\nTo\nDepart – Return\nWed 04 Nov 2026 - Sat 07 Nov 2026\nPassengers\n1 Adult, 0 Children, 0 Infant\nClass\nEconomy\nPromotion Code\nSearch\nServices\nFlight Status\n\nCheck the latest departure and arrival updates\n\nPrepaid Baggage\n\nPay for extra baggage before your flight\n\nSpecial Meals\n\nArrange special meals during your flight\n\nTransit Hotel\n\nArrange hotel accommodation during your transfer\n\nFlying with Us\nTransfer Service\n\nCheck-in through service\n\nInternational/Regional Transit Accommodation Service\n\nDiscover the wonders of Chengdu at no extra cost with the Stopover program\n\nMembership Club\n\nWelcome to our frequent flyer program\n\nTravel Guide\n\nA Guide to the Departure Tax Refund for Overseas Visitors\n\nAbout\nAbout us\nContact Us\nSupport\nSite Map\nPolicy\nPrivacy Policy\nProtection of Minors’ Personal Information and Guardians’ Instructions\nCookies Statement\nSocial\nCopyright Sichuan Airlines. All Rights Reserved.\n蜀ICP备18038377号-1\nCSC Sales and Service Hotline: +86 28 8888 8888(7x24h)\nClose\nSCAL Cookie\n\nSCAL uses cookies and similar technologies when you visit our website and our app (hereinafter called \"our website\"). We always use functional and analytical cookies to make sure our website works properly and to analyse and improve the use of our pages.\n\nWith your consent, we also use cookies and your personal data to (i) analyse the effectiveness of our marketing campaigns (\"Marketing cookies for performance\") and to (ii) personalise our advertisements and content to better align with your interests (\"Marketing cookies for advertisement and social media\"). By placing these cookies, SCAL and third parties can track your click behaviour across the web.\n\nBy clicking on \"Accept\", you consent",
+ "inputs": [
+  [
+   "BUTTON",
+   "button",
+   "",
+   "reka-popover-trigger-v-0",
+   "",
+   "the United States"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Online Services"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Information"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Membership Club"
+  ],
+  [
+   "BUTTON",
+   "submit",
+   "",
+   "",
+   "",
+   "Next slide\nNext slide\nNext slide\nNext sl"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Next slide"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Next slide"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Next slide"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Next slide"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Next slide"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "reka-tabs-v-2-trigger-1",
+   "",
+   "Book a Flight"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "reka-tabs-v-2-trigger-2",
+   "",
+   "Flight Status"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "reka-tabs-v-2-trigger-4",
+   "",
+   "Prepaid Baggage"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Round Trip"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "One Way"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Multi-City"
+  ],
+  [
+   "INPUT",
+   "text",
+   "",
+   "v-9",
+   "Departure city",
+   ""
+  ],
+  [
+   "BUTTON",
+   "submit",
+   "",
+   "",
+   "",
+   ""
+  ],
+  [
+   "INPUT",
+   "text",
+   "",
+   "v-11",
+   "Arrival city",
+   ""
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "v-13",
+   "",
+   "Wed 04 Nov 2026 - Sat 07 Nov 2026"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "v-15",
+   "",
+   "1 Adult, 0 Children, 0 Infant"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "v-17",
+   "",
+   "Economy"
+  ],
+  [
+   "BUTTON",
+   "submit",
+   "",
+   "",
+   "",
+   ""
+  ],
+  [
+   "INPUT",
+   "text",
+   "",
+   "v-19",
+   "Enter your promotion code",
+   ""
+  ],
+  [
+   "BUTTON",
+   "submit",
+   "",
+   "",
+   "",
+   "Search"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "By Flight Number"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "By Route"
+  ],
+  [
+   "INPUT",
+   "text",
+   "",
+   "v-23",
+   "Enter flight number, eg. 3U8701",
+   ""
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "reka-popover-trigger-v-24",
+   "",
+   "Tue 03 Nov 2026"
+  ],
+  [
+   "BUTTON",
+   "submit",
+   "",
+   "",
+   "",
+   " Search "
+  ],
+  [
+   "BUTTON",
+   "submit",
+   "",
+   "",
+   "",
+   "Log In"
+  ],
+  [
+   "BUTTON",
+   "button",
+   "",
+   "",
+   "",
+   "Close"
+  ],
+  [
+   "BUTTON",
+   "submit",
+   "",
+   "",
+   "",
+   "Change cookie settings"
+  ],
+  [
+   "BUTTON",
+   "submit",
+   "",
+   "",
+   "",
+   "Reject"
+  ],
+  [
+   "BUTTON",
+   "submit",
+   "",
+   "",
+   "",
+   "Accept"
+  ]
+ ]
+}
