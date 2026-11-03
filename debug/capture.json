@@ -1,0 +1,59 @@
+[
+ {
+  "url": "https://www.google.com/_/FlightsFrontendUi/bscframe",
+  "method": "GET",
+  "post": "",
+  "headers": {},
+  "status": 200,
+  "len": 15,
+  "has_thai": false,
+  "has_sichuan": false,
+  "body_head": "<!DOCTYPE html>"
+ },
+ {
+  "url": "https://www.google.com/_/FlightsFrontendUi/data/travel.frontend.flights.FlightsFrontendService/GetShoppingResults?f.sid=-4538653745799088349&bl=boq_travel-frontend-flights-ui_20261102.01_p0&hl=tr&soc-app=162&soc-platform=1&soc-device=1&_reqid=38910&rt=c",
+  "method": "POST",
+  "post": "f.req=%5Bnull%2C%22%5B%5Bnull%2Cnull%2Cnull%2C%5C%22H8elsv9tbYW8ACyDHgBG--------pjbgx15AAAAAGrpu_wHeY8YA%5C%22%5D%2C%5Bnull%2Cnull%2C2%2Cnull%2C%5B%5D%2C1%2C%5B1%2C0%2C0%2C0%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5B%5B%5B%5B%5C%22IST%5C%22%2C0%5D%5D%5D%2C%5B%5B%5B%5C%22NRT%5C%22%2C0%5D%5D%5D%2Cnull%2C2%2Cnull%2Cnull%2C%5C%222027-02-26%5C%22%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C3%5D%5D%2Cnull%2Cnull%2Cnull%2C1%5D%2C0%2C0%2C0%2C1%5D%22%5D&",
+  "headers": {
+   "x-same-domain": "1",
+   "x-goog-batchexecute-bgr": "[\";UE64TirQAAZ6Fk5fWhZf_PpVaLoZizsmAEABEArZ1G7YiJf_SyU6AfY4IZyz15amgb6D29HeE9dQfH-1In6GlYRLgcbnLJtPrIoPx0zgbXudSw81Mz_-f0AGHwAAANFPAAAABnUBB2MARy7k_gFXA_5hYwmYOvooLfihmKSxc5o-3kmE62lg0sP9Z67SXMmfPInOmOzv9nPPaQKE7ua4WXZFVZUQCB8JYkB2dvVnPjvrhAOwhpdFyMcRUz7Fz713rC7pNlDMl7tBkt8klqFkriss3Z2G0KYrXr_BkVwS9l3iYrlosKVfLKeP_7Yh9U18x0wXim_Mg-44u24ntLnlLcpmeaxLuogiUP-HAQn0-O1Do4FdEIKc7PEO9SGH1HKFkwoWkDStBIc8JrEZzymRFBRd_yjtcunXgG2XpcJJM5gxoBE1nrg17C81LYlFA5H3-tGKxETo4Gn0Nl_NP0kQ4vmiEeTyPgsoGvx0Tme05Kn5-ESE0aj1Oe3qVugmC6sV4YoXSQ3X4pZYhbcYGP1dIPBFTQ2-nGML3mYYKk_UDFqBy5sGsOvpahUFKrR4s3L6qqDrRfRTgQt_gheF4h2mmh3FdBxkH5upE2Z_2pxv0RauKg9eE-rBEnOhT1Ro_uhcy94SAk6ZpFazGNjahXd9cpGPPy0Jq2y8R6QZk0E_xtozn2DCe6KDIEaB8ekM8sBgOc_ypj8lG1tgiE_K2_5bghD-UDzJEHss8LZ4OyO9KGW3W21i-XQxoyAfBoLTeN7vqeNUwLNzS6CC5OOwpVL5qwW5BapENNmhmAj-ils_runc9qH9uXyLOs2TSl3Z5Ne4nuPbe9HXNWE6URjuQ6lkMysNABQtDFX1V5KawCVepjJeAKDEVv4jH2PDhn7Zi_u4LN9rGuZlKgQUGI-8D8MutOSiAW2uGSltLM7nDX6WdLdVCFKb0zmwDobP1SKoUsKLORjyywrdBTDV6VNMjidTyFZKj5woHXPLS-FwwlINBOdsh0UOeuCwkUhAbT-Et2DzAa5bWGscqLsS8XtQJxNTHIT-MabnTlHL-nP0aMjCjVzlZEknFc74umrT0D1u5itK6wQH_GxWv6WszfIWXO4s_P4fsaM3oCrNMEErfGjejSUQxfdKLkwilTrAlpNwv3OdpBr5ERT2wDhusDh0pixgnWx9m5KnjTsxa73X9U-F3ofEnj7KF3BdRagqg7jfdRx8Ec9eZx61Ukye7gGYR8LId2e5CI2096qSOMt2bQeRve5z0RlVdkHLhsb_DgydB_-R4jmlxsIg4eNFZBNsQT1jmrLlPL_XyU1zKZm1EpNgCqHX1h0j-SXWN60Bn4U1YPNysp9pClbOQGZp4UuGf1GtBu1M1xtvXcb2pfkY-5bizQCmUAo01rZACEhKZJg_T5yrGdoBD0wvNwk554rpBHHPT5o1kMY4jwWZVGcbY9IX8kLnD1uvV2-xhSMqhByKCVGDugE9boQ-eQ26Qjcd0a5IbN5XG-M\",null,null,225,98,null,null,0,\"5\"]",
+   "content-type": "application/x-www-form-urlencoded;charset=utf-8",
+   "x-goog-ext-259736195-jspb": "[\"tr\",\"US\",\"TRY\",2,null,[0],null,null,7,[]]"
+  },
+  "status": 200,
+  "len": 0,
+  "has_thai": false,
+  "has_sichuan": false,
+  "body_head": ""
+ },
+ {
+  "url": "https://www.google.com/_/FlightsFrontendUi/browserinfo?f.sid=-4538653745799088349&bl=boq_travel-frontend-flights-ui_20261102.01_p0&hl=tr&soc-app=162&soc-platform=1&soc-device=1&_reqid=138910&rt=j",
+  "method": "POST",
+  "post": "f.req=%5B9%2C1%2C1%2C%5Bnull%2C2000%2C1280%5D%2C%5Bnull%2C2000%2C1280%5D%2C%5B1%2C1%2Cnull%2C1%5D%2C%5B0%2C2%2C2%5D%5D&",
+  "headers": {
+   "x-same-domain": "1",
+   "content-type": "application/x-www-form-urlencoded;charset=utf-8"
+  },
+  "status": 200,
+  "len": 91,
+  "has_thai": false,
+  "has_sichuan": false,
+  "body_head": ")]}'\n\n[[[\"f.mt\"],[\"di\",42],[\"af.httprm\",41,\"-7054154690584102434\",1],[\"e\",4,null,null,91]]]"
+ },
+ {
+  "url": "https://www.google.com/_/FlightsFrontendUi/data/travel.frontend.flights.FlightsFrontendService/GetShoppingResults?f.sid=-4538653745799088349&bl=boq_travel-frontend-flights-ui_20261102.01_p0&hl=tr&soc-app=162&soc-platform=1&soc-device=1&_reqid=238910&rt=c",
+  "method": "POST",
+  "post": "f.req=%5Bnull%2C%22%5B%5B%5D%2C%5Bnull%2Cnull%2C2%2Cnull%2C%5B%5D%2C1%2C%5B1%2C0%2C0%2C0%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5B%5B%5B%5B%5C%22IST%5C%22%2C0%5D%5D%5D%2C%5B%5B%5B%5C%22NRT%5C%22%2C0%5D%5D%5D%2Cnull%2C2%2Cnull%2Cnull%2C%5C%222027-02-26%5C%22%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C3%5D%5D%2Cnull%2Cnull%2Cnull%2C1%5D%2C0%2C1%2C0%2C1%5D%22%5D&",
+  "headers": {
+   "x-same-domain": "1",
+   "x-goog-batchexecute-bgr": "[\";NCq4Kk7QAAZ6Fk5fWhZf_PpVaLoZizsmAEABEArZ1G7YiJf_SyU6AfY4IZyz15amgb6D29HeE9dQfH-1In6GlYRLgcbnLJtPrIoPx0zgbXudSw81Mz_-f0AGHwAAANFPAAAABHUBB2MARy7k_gFXA_5hYwmYOvooLfihmKSxc5o-3kmE62lg0sP9Z67SXMmfPInOmOzv9nPPaQKE7ua4WXZFVZUQCB8JYkB2dvVnPjvrhAPhhpdFyMcRUz7Fz713rC7pNlDMl7tBkt8klqFkriss3Z2G0KYrXr_BkVwS9l3iYrlosKVfLKeP_7Yh9U18x0wXim_Mg-44u24ntLnlLcpmeaxLuogiUP-HAQn0-O1Do4FdEIKc7PEO9SGH1HKFkwoWkDStBIc8JrEZzymRFBRd_yjtcunXgG2XpcJJM5gxoBE1nrg17C81LYlFA5H3-tGKxETo4Gn0Nl_NP0kQ4vmiEeTyPgsoGvx0Tme05Kn5-ESE0aj1Oe3qVugmC6sV4YoXSQ3X4pZYhbcYGP1dIPBFTQ2-nGML3mYYKk_UDFqBy5sGsOvpahUFKrR4s3L6qqDrRfRTgQt_gheF4h2mmh3FdBxkH5upE2Z_2pxv0RauKg9eE-rBEnOhT1Ro_uhcy94SAk6ZpFazGNjahXd9cpGPPy0Jq2y8R6QZk0E_xtozn2DCe6KDIEaB8ekM8sBgOc_ypj8lG1tgiE_K2_5bghD-UDzJEHss8LZ4OyO9KGW3W21i-XQxoyAfBoLTeN7vqeNUwLNzS6CC5OOwpVL5qwW5BapENNmhmAj-ils_runc9qH9uXyLOs2TSl3Z5Ne4nuPbe9HXNWE6URjuQ6lkMysNABQtDFX1V5KawCVepjJeAKDEVv4jH2PDhn7Zi_u4LN9rGuZlKgQUGI-8D8MutOSiAW2uGSltLM7nDX6WdLdVCFKb0zmwDobP1SKoUsKLORjyywrdBTDV6VNMjidTyFZKj5woHXPLS-FwwlINBOdsh0UOeuCwkUhAbT-Et2DzAa5bWGscqLsS8XtQJxNTHIT-MabnTlHL-nP0aMjCjVzlZEknFc74umrT0D1u5itK6wQH_GxWv6WszfIWXO4s_P4fsaM3MCrNNZb6heqhIonVkJi2sR-Z8yxtoDy9FCi3_4t6iIF7b4rvoRsvII_MCSOiFyoPn1uFydwOIhnKJxsYDAFiKXZxIXbVlj8JBnKlnDszDTxIW4m7V7h-iG7y86nSv73hq_BNKmI9dgER8Xlk5IgaTpWCAHLL15peOCI4TSHEAZG70zC8rFbmQV_HcE77y0_-PKTk4wBoCwDL9wER-3jor8pqY5LPMEldm9wXZicXWpLglbC21tFDDFWAZi6orjP1J5vkkh3HtccgJKzra1_ZiulyNAkQNj5GyGz9dE-IYTXsKwjpFNwSsrLYN4eR3wolgMekf6IIDWSvnIUCpbnXCa8PKMSXJfWzgcpeW-t9TEg8NB04c3N9oUK5ufOR_wQKnsmlDncY06BW7HQ8xHQ9cU2zabTVhGZekmuQptmPYMt_DIfFLWfRK-Eko631X7b4\",null,null,24,null,null,null,0,\"5\"]",
+   "content-type": "application/x-www-form-urlencoded;charset=utf-8",
+   "x-goog-ext-259736195-jspb": "[\"tr\",\"US\",\"TRY\",2,null,[0],null,null,7,[]]"
+  },
+  "status": 200,
+  "len": 231561,
+  "has_thai": true,
+  "has_sichuan": true,
+  "body_head": ")]}'\n\n135137\n[[\"wrb.fr\",null,\"[[null,[[1793702921207457,16322977,1762638738],null,null,null,null,[[1]]],0,\\\"CbzpauHUDKGj5LcPkve-yAY\\\",\\\"H1EECWecwW2UAC_DawBG---------pfbic2AAAAAGrpvAkDNvqeA\\\"],[[[[[\\\"IST\\\",0],\\\"Istanbul Airport\\\",[\\\"/m/09949m\\\",\\\"İstanbul\\\",[[\\\"https://encrypted-tbn2.gstatic.com/images?q\\\\u003dtbn:ANd9GcRiCjiMuHyH5raqgVAMRbLlsvhbz3F-vRqjoeVsLl90nMoNQwTytaomGjUfudBUtd2MtI9VLBNX1nuQ2S3W5ilNuO2DRBxUVEgdJX-XYQQ\\\"],[\\\"https://encrypted-tbn2.gstatic.com/images?q\\\\u003dtbn:ANd9GcTCxBjNwAoLrTOKowDJwZyOgqpPqpGuPY1umCd0ey6x2mma7s1rFxR63gC-wiSQxRp8LzzpwbK_vjhTOg\\\"]]],[41.2602778,28.7419444],\\\"TR\\\",false,\\\"Türkiye\\\"]],[[[\\\"NRT\\\",0],\\\"Narita Uluslararası Havalimanı\\\",[\\\"/m/07dfk\\\",\\\"Tokyo\\\",[[\\\"https://encrypted-tbn3.gstatic.com/images?q\\\\u003dtbn:ANd9GcRLnIToEgwiM_jV3cbw5eQZoUAIg6XqdrJAiClDyyg0w-JBSRN5ZeOT-iFb3SvwkwP1uoBCmT-gKE5VcyCYf-xq4guL4NAFICSaNyOnYOA\\\"],[\\\"https://encrypted-tbn3.gstatic.com/images?q\\\\u003dtbn:ANd9GcTqHkzEeI2bSglPzmSGZL7bxXmn0wJgOn2ZtEN8I47uBnzY1CnHzGtD-YseJXqyexcAcw_uJp-D5HTkCg\\\"]]],[35.7652778,140.385556],\\\"JP\\\",false,\\\"Japonya\\\"]]]],[[[[\\\"TG\\\",[\\\"THAI\\\"],[[null,null,null,\\\"IST\\\",\\\"Istanbul Airport\\\",\\\"Suvarnabhumi Uluslararası Havaalanı\\\",\\\"BKK\\\",null,[16,30],1,[5,20],530,[null,true,null,null,null,null,null,null,null,true],1,\\\"79 cm\\\",null,1,\\\"Airbus A350\\\",[true],false,[2027,2,26],[2027,2,27],[\\\"TG\\\",\\\"901\\\",null,\\\"THAI\\\"],null,null,1,null,null,null,null,\\\"79 santimetre\\\",462501,1],[null,null,null,\\\"BKK\\\",\\\"Suvarnabhumi Uluslararası Havaalanı\\\",\\"
+ }
+]
