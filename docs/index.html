@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Japonya Tek Yön</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23d9480f' d='M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z'/></svg>">
+<style>
+:root{
+  --bg:#f7f6f3;--card:#ffffff;--ink:#1c1b19;--ink2:#5c5a55;--ink3:#8d8a83;--line:#e4e1da;
+  --accent:#d9480f;--accent-bg:#fdebe2;--good:#1f8a5b;--good-bg:#e3f4ec;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141413;--card:#1e1d1b;--ink:#f0eee8;--ink2:#b3b0a8;--ink3:#837f77;--line:#33312d;
+  --accent:#ff7a3d;--accent-bg:#3a2216;--good:#4cc28a;--good-bg:#173226;
+}}
+:root[data-theme="dark"]{
+  --bg:#141413;--card:#1e1d1b;--ink:#f0eee8;--ink2:#b3b0a8;--ink3:#837f77;--line:#33312d;
+  --accent:#ff7a3d;--accent-bg:#3a2216;--good:#4cc28a;--good-bg:#173226;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 64px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:8px 24px;margin-bottom:20px}
+h1{font-size:24px;margin:0;letter-spacing:-.01em}
+h1 small{display:block;font-size:14px;font-weight:400;color:var(--ink2);margin-top:2px}
+.meta{font-size:13px;color:var(--ink3);text-align:right}
+section{margin-bottom:28px}
+h2{font-size:16px;margin:0 0 4px}
+.hint{font-size:13px;color:var(--ink3);margin:0 0 12px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.opt{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:8px}
+.opt:hover{border-color:var(--accent)}
+.opt .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.opt .price{font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+.opt .rank{font-size:12px;color:var(--ink3)}
+.opt .d1{font-weight:500}
+.opt .d2{font-size:13px;color:var(--ink2)}
+.tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;background:var(--good-bg);color:var(--good);font-weight:500;margin-left:4px}
+.tag.old{background:var(--line);color:var(--ink2)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{padding:6px 8px;text-align:right;border-top:1px solid var(--line);white-space:nowrap}
+th{font-weight:500;color:var(--ink3);border-top:0}
+th:first-child,td:first-child{text-align:left}
+td a{color:inherit;text-decoration:none}
+td a:hover{color:var(--accent)}
+td.min{background:var(--good-bg);color:var(--good);font-weight:600}
+td.na{color:var(--ink3)}
+.empty{padding:24px;text-align:center;color:var(--ink2)}
+footer{font-size:12px;color:var(--ink3);margin-top:32px;line-height:1.6}
+@media (max-width:640px){.meta{text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>İstanbul ⇄ Japonya · Tek yön<small>IST/SAW ⇄ Haneda, Narita, Kansai · en fazla 1 aktarma, en fazla 20 saat · tek kişi, ekonomi</small></h1>
+    <div class="meta" id="meta">Yükleniyor…</div>
+  </header>
+
+  <section>
+    <div class="cols">
+      <div class="card"><h2>Gidiş · en ucuz 3</h2><p class="hint" id="out-hint"></p><div id="top-out"></div></div>
+      <div class="card"><h2>Dönüş · en ucuz 3</h2><p class="hint" id="ret-hint"></p><div id="top-ret"></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Gidiş · gün gün en ucuz</h2>
+    <p class="hint">Hücreye tıklayınca Google Flights'ta o arama açılır. Yeşil: satırdaki en ucuz.</p>
+    <div class="card tbl" id="grid-out"></div>
+  </section>
+
+  <section>
+    <h2>Dönüş · gün gün en ucuz</h2>
+    <p class="hint">Hücreye tıklayınca Google Flights'ta o arama açılır. Yeşil: satırdaki en ucuz.</p>
+    <div class="card tbl" id="grid-ret"></div>
+  </section>
+
+  <footer>Fiyatlar Google Flights'tan, tek yön, tek yetişkin, TL. Toplam süre aktarma beklemesi dahildir. Günde 3 kez (07:00, 12:00, 19:00) güncellenir.</footer>
+</div>
+<script>
+const tl = n => n.toLocaleString("tr-TR") + " TL";
+const hrs = m => `${Math.floor(m / 60)} sa ${String(m % 60).padStart(2, "0")} dk`;
+const day = s => new Date(s + "T00:00:00").toLocaleDateString("tr-TR", {day: "numeric", month: "short", weekday: "short"});
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+
+function topList(el, opts) {
+  if (!opts || !opts.length) { el.innerHTML = '<div class="empty">Filtreye uyan seçenek yok.</div>'; return; }
+  el.innerHTML = opts.map((o, i) => `
+    <a class="opt" href="${esc(o.url)}" target="_blank" rel="noopener">
+      <div class="top"><span class="price">${tl(o.price)}</span><span class="rank">#${i + 1}</span></div>
+      <div class="d1">${day(o.date)} · ${o.from} → ${o.to}${o.stale ? '<span class="tag old">eski</span>' : ""}</div>
+      <div class="d2">${esc(o.airlines.join(", "))} · ${o.via.length ? esc(o.via.join(", ")) + " aktarmalı" : '<span class="tag">aktarmasız</span>'} · ${hrs(o.minutes)}</div>
+    </a>`).join("");
+}
+
+function grid(el, routes, dir) {
+  const rs = Object.values(routes).filter(r => r.dir === dir);
+  if (!rs.length) { el.innerHTML = '<div class="empty">Henüz veri yok.</div>'; return; }
+  const dates = [...new Set(rs.map(r => r.date))].sort();
+  const pairs = [...new Set(rs.map(r => r.from + "→" + r.to))].sort();
+  const by = Object.fromEntries(rs.map(r => [r.date + r.from + "→" + r.to, r]));
+  let h = "<table><tr><th>Tarih</th>" + pairs.map(p => `<th>${p}</th>`).join("") + "</tr>";
+  for (const d of dates) {
+    const cells = pairs.map(p => by[d + p]);
+    const prices = cells.map(c => c && c.options && c.options.length ? c.options[0].price : null);
+    const min = Math.min(...prices.filter(x => x !== null));
+    h += `<tr><td>${day(d)}</td>` + cells.map((c, i) => prices[i] === null
+      ? `<td class="na">${c ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">—</a>' : "—"}</td>`
+      : `<td class="${prices[i] === min ? "min" : ""}"><a href="${esc(c.url)}" target="_blank" rel="noopener">${tl(prices[i])}</a></td>`).join("") + "</tr>";
+  }
+  el.innerHTML = h + "</table>";
+}
+
+fetch("data.json?" + Date.now()).then(r => r.json()).then(d => {
+  const lr = d.last_run;
+  document.getElementById("meta").innerHTML = lr
+    ? `Son tarama: <b>${new Date(lr.at).toLocaleString("tr-TR")}</b><br>${lr.ok}/${lr.total} arama başarılı`
+    : "Henüz tarama yapılmadı.";
+  const c = d.config;
+  if (c) {
+    const f = s => new Date(s + "T00:00:00").toLocaleDateString("tr-TR", {day: "numeric", month: "long"});
+    document.getElementById("out-hint").textContent = `${f(c.outbound.from)} – ${f(c.outbound.to)}`;
+    document.getElementById("ret-hint").textContent = `${f(c.return.from)} – ${f(c.return.to)}`;
+  }
+  topList(document.getElementById("top-out"), (d.top || {}).out);
+  topList(document.getElementById("top-ret"), (d.top || {}).ret);
+  grid(document.getElementById("grid-out"), d.routes || {}, "out");
+  grid(document.getElementById("grid-ret"), d.routes || {}, "ret");
+}).catch(() => { document.getElementById("meta").textContent = "Veri okunamadı."; });
+</script>
+</body>
+</html>
